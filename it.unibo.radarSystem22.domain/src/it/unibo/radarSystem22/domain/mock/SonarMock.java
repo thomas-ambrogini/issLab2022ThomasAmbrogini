@@ -21,8 +21,8 @@ public class SonarMock implements ISonar{
 		new Thread() {
 			public void run() {
 				while(active) {
-					distance = new Distance(getDistance().getVal() - 1);
 					BasicUtils.delay(250);
+					distance = new Distance(getDistance().getVal() - 1);
 					if(distance.getVal() == 0) {
 						deactivate();
 					}

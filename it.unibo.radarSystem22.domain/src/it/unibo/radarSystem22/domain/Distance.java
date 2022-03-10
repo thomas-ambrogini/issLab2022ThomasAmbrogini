@@ -6,7 +6,7 @@ public class Distance implements IDistance {
 	private int val;
 	
 	public Distance(int val) {
-		this.val = val;s
+		this.val = val;
 	}
 
 	@Override
