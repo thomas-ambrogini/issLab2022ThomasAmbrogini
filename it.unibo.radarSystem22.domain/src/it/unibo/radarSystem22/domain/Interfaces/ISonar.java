@@ -1,4 +1,4 @@
-package it.unibo.radarSystem22.domain.interfaces;
+package it.unibo.radarSystem22.domain.Interfaces;
 
 public interface ISonar {
 
