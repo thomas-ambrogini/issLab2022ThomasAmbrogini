@@ -205,16 +205,19 @@ Primo progetto.
  
 <div class="remark">
  
-Si desidera costruire un’applicazione software capace di:
+Si desidera costruire un'applicazione software capace di:
 
 <ul>
 <li>(requisito <b>radarGui</b>) mostrare le distanze rilevate da un sensore Sonar <tt>HC-SR04</tt>
  connesso a un RaspberryPi su un display (RadarDisplay) a forma di radar connesso a un PC.
-
 <center><img src="images/radarDisplay.png" width="10%"></img></center>
+</li>
+
 <li>(requisito <b>ledAlarm</b>) accendere un Led se la distanza rilevata dal Sonar 
-è inferiore a un valore limite prefissato denominato <tt>DLIMIT</tt>.
-</li> 
+risulta inferiore a un valore limite prefissato denominato <tt>DLIMIT</tt>.
+</li>
+</ul>
+
 </div>
 
  
@@ -222,7 +225,6 @@ Si desidera costruire un’applicazione software capace di:
 <h2>Requirement analysis</h2>
  
 
-</div>
 
 <h2>Problem analysis</h2>
  
@@ -235,8 +237,15 @@ Si desidera costruire un’applicazione software capace di:
 <div class="remark">
 
 <ul>
-<li>Realizzazione delle interfacce con la quale viene descritto il modello del dominio in modo formale
+<li>
+	Realizzazione delle interfacce con la quale viene descritto il modello del dominio in modo formale
+</li>
 
+<li>
+	Realizzazione di un LedMock e realizzazione di test sul mock
+</li>
+
+</ul>
 </div>
 
 
