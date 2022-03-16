@@ -10,6 +10,7 @@ import org.junit.Test;
 import it.unibo.radarSystem22.domain.interfaces.ISonar;
 import it.unibo.radarSystem22.domain.mock.SonarMock;
 import it.unibo.radarSystem22.domain.utils.BasicUtils;
+import it.unibo.radarSystem22.domain.utils.DomainSystemConfig;
 
 public class TestSonar {
 
@@ -26,8 +27,11 @@ public class TestSonar {
 	@Test
 	public void testSonar() {
 		System.out.println("testSonar");
+		DomainSystemConfig.simulation = true;
+		DomainSystemConfig.testing    = false;
+		DomainSystemConfig.sonarDelay = 100;
 		
-		ISonar sonar = new SonarMock();
+		ISonar sonar = DeviceFactory.createSonar();
 		assertTrue(!sonar.isActive());
 		
 		sonar.activate();
@@ -35,7 +39,7 @@ public class TestSonar {
 		
 		assertEquals(sonar.getDistance().getVal(), 90);
 		
-		BasicUtils.delay(900);
+		BasicUtils.delay(DomainSystemConfig.sonarDelay * 3);
 		assertEquals(sonar.getDistance().getVal(), 87);
 		
 		sonar.deactivate();
