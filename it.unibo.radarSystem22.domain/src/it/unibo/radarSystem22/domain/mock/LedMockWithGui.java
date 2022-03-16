@@ -8,7 +8,7 @@ import java.awt.Panel;
 import java.awt.event.WindowEvent;
 import java.awt.event.WindowListener;
 
-import it.unibo.radarSystem22.domain.Interfaces.ILed;
+import it.unibo.radarSystem22.domain.interfaces.ILed;
 
 public class LedMockWithGui extends LedMock {
 	private Panel p ;

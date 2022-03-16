@@ -1,8 +1,8 @@
 package it.unibo.radarSystem22.domain.mock;
 
 import it.unibo.radarSystem22.domain.Distance;
-import it.unibo.radarSystem22.domain.Interfaces.IDistance;
-import it.unibo.radarSystem22.domain.Interfaces.ISonar;
+import it.unibo.radarSystem22.domain.interfaces.IDistance;
+import it.unibo.radarSystem22.domain.interfaces.ISonar;
 import it.unibo.radarSystem22.domain.utils.BasicUtils;
 
 public class SonarMock implements ISonar{

@@ -1,7 +1,7 @@
 package it.unibo.radarSystem22.domain.models;
 
-import it.unibo.radarSystem22.domain.Interfaces.ILed;
 import it.unibo.radarSystem22.domain.concrete.LedConcrete;
+import it.unibo.radarSystem22.domain.interfaces.ILed;
 import it.unibo.radarSystem22.domain.mock.LedMock;
 import it.unibo.radarSystem22.domain.mock.LedMockWithGui;
 import it.unibo.radarSystem22.domain.utils.ColorsOut;

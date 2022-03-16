@@ -7,7 +7,7 @@ import org.junit.After;
 import org.junit.Before;
 import org.junit.Test;
 
-import it.unibo.radarSystem22.domain.Interfaces.ISonar;
+import it.unibo.radarSystem22.domain.interfaces.ISonar;
 import it.unibo.radarSystem22.domain.mock.SonarMock;
 import it.unibo.radarSystem22.domain.utils.BasicUtils;
 
