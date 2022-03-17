@@ -31,19 +31,18 @@ public class TestSonar {
 		DomainSystemConfig.testing    = false;
 		DomainSystemConfig.sonarDelay = 100;
 		
+		int delta = 1;
+		
 		ISonar sonar = DeviceFactory.createSonar();
 		assertTrue(!sonar.isActive());
 		
+		new SonarConsumerForTesting( sonar, delta).start();
 		sonar.activate();
 		assertTrue(sonar.isActive());
 		
-		assertEquals(sonar.getDistance().getVal(), 90);
-		
-		BasicUtils.delay(DomainSystemConfig.sonarDelay * 3);
-		assertEquals(sonar.getDistance().getVal(), 87);
-		
-		sonar.deactivate();
-		assertTrue(!sonar.isActive());
+		while( sonar.isActive() ) {
+			BasicUtils.delay(1000);
+		}
 		
 	}
 }
