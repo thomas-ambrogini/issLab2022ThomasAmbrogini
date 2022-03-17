@@ -8,6 +8,8 @@ import org.junit.Test;
 
 import it.unibo.radarSystem22.domain.interfaces.ILed;
 import it.unibo.radarSystem22.domain.mock.LedMock;
+import it.unibo.radarSystem22.domain.utils.BasicUtils;
+import it.unibo.radarSystem22.domain.utils.DomainSystemConfig;
 
 public class TestLed {
 
@@ -23,13 +25,22 @@ public class TestLed {
 	
 	@Test
 	public void testLedMockOn() {
+		DomainSystemConfig.ledGui = true;
 		System.out.println("testLedMockOn");
 		
-		ILed led = new LedMock();
+		ILed led = DeviceFactory.createLed();
 		assertTrue(!led.getState());
 		
 		led.turnOn();
 		assertTrue(led.getState());
+		
+		BasicUtils.delay(1000);	
+		
+		led.turnOff();
+		assertTrue(!led.getState());
+		
+		BasicUtils.delay(1000);	
+		
 		
 	}
 	
