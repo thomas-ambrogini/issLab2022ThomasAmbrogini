@@ -2,8 +2,6 @@ package it.unibo.radarSystem22.domain;
 
 import static org.junit.Assert.assertTrue;
 
-import java.util.concurrent.locks.Lock;
-
 import it.unibo.radarSystem22.domain.interfaces.IDistance;
 import it.unibo.radarSystem22.domain.interfaces.ISonar;
 import it.unibo.radarSystem22.domain.utils.BasicUtils;
