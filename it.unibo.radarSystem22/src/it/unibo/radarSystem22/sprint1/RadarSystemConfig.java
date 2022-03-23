@@ -15,6 +15,15 @@ public class RadarSystemConfig {
 	public static int DLIMIT				= 15;
 	public static boolean RadarGuiRemote	= false;
 	
+	//Aggiunte dello Sprint2
+	public static String hostAddr         	= "localhost";		
+	public static String raspAddr         	= "localhost";		
+	public static int serverPort          	= 8023;
+	
+	//Aggiunte dello Sprint2a
+	public static int ledPort             	= 8010;
+	public static int sonarPort           	= 8015;
+	
 	public static void setTheConfiguration() {
 		setTheConfiguration("../RadarSystemConfig.json");
 	}

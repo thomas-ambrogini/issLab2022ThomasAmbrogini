@@ -39,10 +39,10 @@ public class RadarSystemSprint1Main implements IApplication {
 			RadarSystemConfig.DLIMIT				= 70;
 			RadarSystemConfig.RadarGuiRemote		= false;
 			//Su Raspberry
-			DomainSystemConfig.simulation			= false;
-			DomainSystemConfig.ledGui				= false;
-			RadarSystemConfig.DLIMIT				= 12;
-			RadarSystemConfig.RadarGuiRemote		= true;
+			//DomainSystemConfig.simulation			= false;
+			//DomainSystemConfig.ledGui				= false;
+			//RadarSystemConfig.DLIMIT				= 12;
+			//RadarSystemConfig.RadarGuiRemote		= true;
 		}
 	}
 	
@@ -93,13 +93,13 @@ public class RadarSystemSprint1Main implements IApplication {
 	
 	public static void main( String[] args ) throws Exception {
 		//WITHOUT CONFIG FILE
-//		BasicUtils.aboutThreads("At INIT with NO CONFIG files |");
-//		new RadarSystemSprint1Main().doJob(null, null);
-		
+		BasicUtils.aboutThreads("At INIT with NO CONFIG files |");
+		new RadarSystemSprint1Main().doJob(null, null);
+/*		
 		//WITH CONFIG FILE
 		BasicUtils.aboutThreads("At INIT with CONFIG files | ");
 		new RadarSystemSprint1Main().doJob(
 				"DomainSystemConfig.json", "RadarSystemConfig.json");
-	}
+*/	}
 
 }

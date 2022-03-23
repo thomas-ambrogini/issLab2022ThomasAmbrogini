@@ -51,7 +51,7 @@ public class Controller {
 							ColorsOut.outappl("Controller | d" + d + " i=" + i, ColorsOut.GREEN);
 							
 							if( radar != null)
-								RadarGuiUsecase.doUseCase( radar, d );
+								RadarGuiUsecase.doUseCase(radar, d);
 							
 							LedAlarmUsecase.doUseCase( led, d );
 							BasicUtils.delay(DomainSystemConfig.sonarDelay);
