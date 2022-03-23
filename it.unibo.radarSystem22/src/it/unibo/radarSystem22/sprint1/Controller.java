@@ -1,4 +1,4 @@
-package sprint1;
+package it.unibo.radarSystem22.sprint1;
 
 import it.unibo.radarSystem22.domain.DeviceFactory;
 import it.unibo.radarSystem22.domain.interfaces.IDistance;
@@ -8,8 +8,8 @@ import it.unibo.radarSystem22.domain.interfaces.ISonar;
 import it.unibo.radarSystem22.domain.utils.BasicUtils;
 import it.unibo.radarSystem22.domain.utils.ColorsOut;
 import it.unibo.radarSystem22.domain.utils.DomainSystemConfig;
-import sprint1.usecases.LedAlarmUsecase;
-import sprint1.usecases.RadarGuiUsecase;
+import it.unibo.radarSystem22.sprint1.usecases.LedAlarmUsecase;
+import it.unibo.radarSystem22.sprint1.usecases.RadarGuiUsecase;
 
 public class Controller {
 	private ILed led;

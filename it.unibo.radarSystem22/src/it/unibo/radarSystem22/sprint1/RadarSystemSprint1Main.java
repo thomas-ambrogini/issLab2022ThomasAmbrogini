@@ -1,4 +1,4 @@
-package sprint1;
+package it.unibo.radarSystem22.sprint1;
 
 import it.unibo.radarSystem22.IApplication;
 import it.unibo.radarSystem22.domain.DeviceFactory;

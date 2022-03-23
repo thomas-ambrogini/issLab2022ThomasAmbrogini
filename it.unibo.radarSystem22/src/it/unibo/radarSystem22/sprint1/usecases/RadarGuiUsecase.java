@@ -1,4 +1,4 @@
-package sprint1.usecases;
+package it.unibo.radarSystem22.sprint1.usecases;
 
 import it.unibo.radarSystem22.domain.interfaces.IDistance;
 import it.unibo.radarSystem22.domain.interfaces.IRadarDisplay;
