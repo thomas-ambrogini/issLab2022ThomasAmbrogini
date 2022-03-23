@@ -47,7 +47,9 @@ public class RadarSysSprint2aControllerOnPcMain implements IApplication{
 		
 		RadarSystemConfig.DLIMIT      		= 12;  
 		RadarSystemConfig.RadarGuiRemote    = false;		
-		RadarSystemConfig.raspAddr          = "192.168.1.10";		 	
+		RadarSystemConfig.raspAddr          = "192.168.1.10";		
+		RadarSystemConfig.ledPort			= 8010;
+		RadarSystemConfig.sonarPort			= 8015;
 		
 		CommSystemConfig.tracing            = false;
 	}
