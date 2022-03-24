@@ -60,9 +60,11 @@ public class RadarSysSprint2RadarCallOnRaspMain implements IApplication{
 			BasicUtils.waitTheUser();		 		
 		}
 	}
+	
 	public void terminate() {
 		System.exit(0);
-	}	
+	}
+	
 	@Override
 	public String getName() {
 		return this.getClass().getName() ;  

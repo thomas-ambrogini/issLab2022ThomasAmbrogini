@@ -36,9 +36,11 @@ public class RadarSysSprint2RadarOnPcMain implements IApplication{
   	    IApplMsgHandler radarh = new RadarApplHandler("radarh", radar);
  	    server  = new TcpServer("pcServer",port,radarh );
 	}
+	
 	public void execute() {
 		server.activate();
 	}
+	
 	public void terminate() {
  		BasicUtils.aboutThreads("Before deactivation | ");
 		System.exit(0);

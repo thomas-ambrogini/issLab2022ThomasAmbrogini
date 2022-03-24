@@ -56,11 +56,11 @@ public class RadarSysSprint2ControllerOnRaspMain implements IApplication{
 	protected void configure() {		
  	    sonar      = DeviceFactory.createSonar();
  	    led        = DeviceFactory.createLed();
-	    radar      = new  RadarGuiProxyAsClient("radarPxy", 
-	    		      RadarSystemConfig.hostAddr, 
-		              ""+RadarSystemConfig.serverPort, 
-		              ProtocolType.tcp);
-	    //Controller
+	    radar      = new  RadarGuiProxyAsClient(  "radarPxy", 
+								    		      RadarSystemConfig.hostAddr, 
+									              ""+RadarSystemConfig.serverPort, 
+									              ProtocolType.tcp);
+	    
 	    controller = Controller.create(led, sonar, radar);	 		
  	
 	}
@@ -75,13 +75,15 @@ public class RadarSysSprint2ControllerOnRaspMain implements IApplication{
 		ColorsOut.outappl("CURRENT DISTANCE answer=" + d,ColorsOut.MAGENTA );
 		controller.start(endFun, 30);		
 	}
+	
 	public void terminate() {
 		//Utils.delay(1000);  //For the testing ...
 		int d = radar.getCurDistance();
 		ColorsOut.outappl("CURRENT DISTANCE answer=" + d,ColorsOut.MAGENTA );		
 		sonar.deactivate();
 		System.exit(0);
-	}	
+	}
+	
 	@Override
 	public String getName() {
 		return this.getClass().getName() ;  

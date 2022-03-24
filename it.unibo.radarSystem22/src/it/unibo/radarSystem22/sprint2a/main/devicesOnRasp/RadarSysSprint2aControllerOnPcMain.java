@@ -58,12 +58,11 @@ public class RadarSysSprint2aControllerOnPcMain implements IApplication{
  		ProtocolType protocol = ProtocolType.tcp;
 		
  		led    		= new LedProxyAsClient("ledPxy",     
- 				RadarSystemConfig.raspAddr, ""+RadarSystemConfig.ledPort, protocol );
+ 										RadarSystemConfig.raspAddr, ""+RadarSystemConfig.ledPort, protocol );
   		sonar  		= new SonarProxyAsClient("sonarPxy", 
-  				RadarSystemConfig.raspAddr, ""+RadarSystemConfig.sonarPort, protocol);
+  										RadarSystemConfig.raspAddr, ""+RadarSystemConfig.sonarPort, protocol);
   		radar  		= DeviceFactory.createRadarGui();
  
-	    //Controller
 	    controller = Controller.create(led, sonar, radar);	 		
 	}
 	public void terminate() {

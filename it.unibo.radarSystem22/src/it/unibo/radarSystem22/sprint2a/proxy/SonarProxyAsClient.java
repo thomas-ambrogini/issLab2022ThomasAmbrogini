@@ -13,9 +13,11 @@ public class SonarProxyAsClient extends ProxyAsClient implements ISonar{
 	public SonarProxyAsClient( String name, String host, String entry  ) {		
 		this(name, host, entry, ProtocolType.tcp);
 	}
+	
 	public SonarProxyAsClient( String name, String host, String entry, ProtocolType protocol ) {
 		super( name,  host,  entry, protocol );
  	}
+	
  	@Override
 	public void activate() {
  			sendCommandOnConnection("activate");		

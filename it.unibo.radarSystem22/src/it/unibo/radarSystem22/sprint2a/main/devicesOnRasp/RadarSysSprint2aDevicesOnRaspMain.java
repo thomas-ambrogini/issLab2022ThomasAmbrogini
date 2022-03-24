@@ -54,15 +54,13 @@ public class RadarSysSprint2aDevicesOnRaspMain implements IApplication{
  
 	}
 	protected void configure() {		
- 	   led        = DeviceFactory.createLed();
- 	   IApplMsgHandler ledh = LedApplHandler.create("ledh", led);
- 	   ledServer     = new TcpServer("ledServer",RadarSystemConfig.ledPort,ledh );
+ 	   led        				= DeviceFactory.createLed();
+ 	   IApplMsgHandler ledh 	= LedApplHandler.create("ledh", led);
+ 	   ledServer     			= new TcpServer("ledServer",RadarSystemConfig.ledPort,ledh );
 
-	   sonar      = DeviceFactory.createSonar();
- 	   IApplMsgHandler sonarh = SonarApplHandler.create("sonarh", sonar);
- 	   sonarServer   = new TcpServer("sonarServer",RadarSystemConfig.sonarPort,sonarh );
-
- 	   
+	   sonar      				= DeviceFactory.createSonar();
+ 	   IApplMsgHandler sonarh 	= SonarApplHandler.create("sonarh", sonar);
+ 	   sonarServer   			= new TcpServer("sonarServer",RadarSystemConfig.sonarPort,sonarh );
 	}
 	
 	protected void execute() {		
