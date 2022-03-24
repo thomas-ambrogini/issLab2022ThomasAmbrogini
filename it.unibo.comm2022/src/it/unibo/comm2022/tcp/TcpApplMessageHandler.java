@@ -8,7 +8,7 @@ import it.unibo.comm2022.utils.ColorsOut;
  * Ente attivo per la ricezione di messaggi su una connessione Interaction2021
  */
 public class TcpApplMessageHandler extends Thread{
-	private  IApplMsgHandler handler ;
+	private IApplMsgHandler handler ;
 	private Interaction2021 conn;
 
 	public TcpApplMessageHandler(  IApplMsgHandler handler, Interaction2021 conn ) {

@@ -12,7 +12,7 @@ import it.unibo.comm2022.utils.ColorsOut;
  * and waits for the answer
  */
 class ClientForTest{
-private Interaction2021 conn;
+	private Interaction2021 conn;
 	
 	public void doWorkWithServerOff( String name, int ntimes  ) {
  		try {
@@ -27,6 +27,7 @@ private Interaction2021 conn;
 		conn  = TcpClientSupport.connect("localhost", TestTcpSupports.testPort,ntimes);
 		
 	}
+	
 	public void doWorkWithServerOn( String name, int ntimes  ) {
 		try {
 			connect(ntimes);                    //1

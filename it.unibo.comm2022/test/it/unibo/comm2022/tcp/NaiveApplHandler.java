@@ -9,7 +9,6 @@ public class NaiveApplHandler extends ApplMsgHandler {
 		super(name);
 	}
  
-
 	@Override
 	public void elaborate(String message, Interaction2021 conn) {
 		System.out.println(name + " | elaborate " + message + " conn=" + conn);

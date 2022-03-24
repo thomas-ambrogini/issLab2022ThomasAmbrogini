@@ -15,7 +15,7 @@ public class ProxyAsClient {
  * Realizza la connessione di tipo Interaction2021 (concetto astratto)
  * in modo diverso, a seconda del protocollo indicato (tecnologia specifica)
  */
- 
+	
 	public ProxyAsClient( String name, String host, String entry, ProtocolType protocol ) {
 		try {
 			ColorsOut.out(name+"  | CREATING entry= "+entry+" protocol=" + protocol, ColorsOut.BLUE );
@@ -26,14 +26,15 @@ public class ProxyAsClient {
 		} catch (Exception e) {
 			ColorsOut.outerr( name+"  |  ERROR " + e.getMessage());		}
 	}
-	
  	
 	protected void setConnection( String host, String entry, ProtocolType protocol  ) throws Exception {
+		
 		switch( protocol ) {
+		
 			case tcp : {
 				int port = Integer.parseInt(entry);
 				//conn = new TcpConnection( new Socket( host, port ) ) ; //non fa attempts
-				conn = TcpClientSupport.connect(host,  port, 10); //10 = num of attempts
+				conn = TcpClientSupport.connect(host, port, 10); //10 = num of attempts
 				ColorsOut.out(name + " |  setConnection "  + conn, ColorsOut.BLUE );		
 				break;
 			}
@@ -75,7 +76,8 @@ public class ProxyAsClient {
 			ColorsOut.outerr( name+"  | sendRequestOnConnection ERROR=" + e.getMessage()  );
 			return null;
 		}
- 	}	
+ 	}
+	
 	public Interaction2021 getConn() {
 		return conn;
 	}

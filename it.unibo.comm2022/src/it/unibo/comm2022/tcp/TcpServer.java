@@ -30,15 +30,15 @@ public class TcpServer extends Thread{
 	public void run() {
 	      try {
 		  	ColorsOut.out(getName() + " | STARTING ... ", ColorsOut.BLUE  );
-			while( ! stopped ) {
-				//Accept a connection				 
+			
+		  	while( ! stopped ) {			 
 				//ColorsOut.out(getName() + " | waits on server port=" + port + " serversock=" + serversock );	 
 		 		Socket sock          = serversock.accept();	
 				ColorsOut.out(getName() + " | accepted connection  ", ColorsOut.BLUE   );  
 		 		Interaction2021 conn = new TcpConnection(sock);
-		 		//Create a message handler on the connection
 		 		new TcpApplMessageHandler( userDefHandler, conn );			 		
-			}//while
+			}
+		  	
 		  }catch (Exception e) {  //Scatta quando la deactive esegue: serversock.close();
 			  ColorsOut.out(getName() + " | probably socket closed: " + e.getMessage(), ColorsOut.GREEN);		 
 		  }
