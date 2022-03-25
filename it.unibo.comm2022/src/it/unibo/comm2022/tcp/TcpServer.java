@@ -28,20 +28,21 @@ public class TcpServer extends Thread{
 	
 	@Override
 	public void run() {
-	      try {
-		  	ColorsOut.out(getName() + " | STARTING ... ", ColorsOut.BLUE  );
+	      
+		try {
+			ColorsOut.out(getName() + " | STARTING ... ", ColorsOut.BLUE  );
 			
-		  	while( ! stopped ) {			 
+			while( ! stopped ) {			 
 				//ColorsOut.out(getName() + " | waits on server port=" + port + " serversock=" + serversock );	 
-		 		Socket sock          = serversock.accept();	
+				Socket sock          = serversock.accept();	
 				ColorsOut.out(getName() + " | accepted connection  ", ColorsOut.BLUE   );  
-		 		Interaction2021 conn = new TcpConnection(sock);
-		 		new TcpApplMessageHandler( userDefHandler, conn );			 		
+				Interaction2021 conn = new TcpConnection(sock);
+				new TcpApplMessageHandler( userDefHandler, conn );			 		
 			}
-		  	
-		  }catch (Exception e) {  //Scatta quando la deactive esegue: serversock.close();
-			  ColorsOut.out(getName() + " | probably socket closed: " + e.getMessage(), ColorsOut.GREEN);		 
-		  }
+			
+		}catch (Exception e) {  //Scatta quando la deactive esegue: serversock.close();
+			ColorsOut.out(getName() + " | probably socket closed: " + e.getMessage(), ColorsOut.GREEN);		 
+		}
 	}
 	
 	public void activate() {
