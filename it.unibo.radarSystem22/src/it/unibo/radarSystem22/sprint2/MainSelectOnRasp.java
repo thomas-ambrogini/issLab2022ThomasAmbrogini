@@ -11,13 +11,14 @@ import it.unibo.radarSystem22.sprint2.main.sysOnRasp.RadarSysSprint2ControllerOn
 import it.unibo.radarSystem22.sprint2a.main.devicesOnRasp.RadarSysSprint2aDevicesOnRaspMain;
 
 public class MainSelectOnRasp {
-public HashMap<String,IApplication> programs = new HashMap<String,IApplication>();
+	public HashMap<String,IApplication> programs = new HashMap<String,IApplication>();
 	
 	protected void outMenu() {
 		for (String i : programs.keySet()) { //
 			  System.out.println( ""+i + "    " + programs.get(i).getName() );
 		}
  	}
+	
 	public void doChoice() {
 		try {
 			programs.put("1", new RadarSystemSprint1Main() );				 
@@ -34,6 +35,7 @@ public HashMap<String,IApplication> programs = new HashMap<String,IApplication>(
 		}
 		
 	}
+	
 	public static void main( String[] args) throws Exception {
 		ColorsOut.outappl("---------------------------------------------------", ColorsOut.BLUE);
 		ColorsOut.outappl("MainSelectOnRasp: this application uses Config Files", ColorsOut.BLUE);
