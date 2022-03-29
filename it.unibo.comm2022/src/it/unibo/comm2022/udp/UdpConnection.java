@@ -83,7 +83,7 @@ public class UdpConnection implements Interaction2021 {
 			socket.close();
 			ColorsOut.out( "UdpConnection | CLOSED  " );
 		} catch (Exception e) {
-			ColorsOut.outerr( "TcpConnection | close ERROR " + e.getMessage());	
+			ColorsOut.outerr( "UdpConnection | close ERROR " + e.getMessage());	
 		}
 		
 	}
