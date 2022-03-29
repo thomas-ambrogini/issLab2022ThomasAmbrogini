@@ -41,6 +41,6 @@ public class MainSelectOnPc {
 		ColorsOut.outappl("---------------------------------------------------", ColorsOut.BLUE);
 		ColorsOut.outappl("MainSelectOnPc: this application uses Config Files", ColorsOut.BLUE);
 		ColorsOut.outappl("---------------------------------------------------", ColorsOut.BLUE);
-		new MainSelectOnRasp().doChoice();
+		new MainSelectOnPc().doChoice();
 	}
 }
