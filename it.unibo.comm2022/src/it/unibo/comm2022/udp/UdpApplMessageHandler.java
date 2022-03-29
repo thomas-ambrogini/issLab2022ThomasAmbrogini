@@ -9,6 +9,7 @@ public class UdpApplMessageHandler extends Thread {
 	private Interaction2021 conn;
 
 	public UdpApplMessageHandler(  IApplMsgHandler handler, Interaction2021 conn ) {
+		System.out.println("Message handler creato");
 		this.handler = handler;
 		this.conn    = conn;
  		this.start();

@@ -37,8 +37,7 @@ public class UdpConnection implements Interaction2021 {
 		ColorsOut.out( "UdpConnection | sendALine  " + msg + " on " + socket, ColorsOut.ANSI_YELLOW );	 
 		
 		try {
-			byte buf [] = null;
-			buf = msg.getBytes();
+			byte[] buf = msg.getBytes();
 			DatagramPacket packet = new DatagramPacket( buf, buf.length, InetAddress.getByName(host), port );
 			socket.send(packet);
 		 
@@ -66,9 +65,8 @@ public class UdpConnection implements Interaction2021 {
 		try {
 			byte [] msg = new byte[2048];
 			DatagramPacket packetReceive = new DatagramPacket( msg, msg.length );
-			socket.receive(packetReceive);
-			
- 			return data(packetReceive.getData());
+			socket.receive(packetReceive); 
+			return new String( packetReceive.getData(), 0, packetReceive.getLength() );
  			
 		} catch ( Exception e   ) {
 			ColorsOut.outerr( "UdpConnection | receiveMsg ERROR  " + e.getMessage() );	
@@ -87,19 +85,5 @@ public class UdpConnection implements Interaction2021 {
 		}
 		
 	}
-	
-	private static String data(byte[] a)
-    {
-        if (a == null)
-            return null;
-        StringBuilder ret = new StringBuilder();
-        int i = 0;
-        while (a[i] != 0)
-        {
-            ret.append((char) a[i]);
-            i++;
-        }
-        return ret.toString();
-    }
 
 }

@@ -19,8 +19,6 @@ private IApplInterpreter ledInterpr;
 		super(name);
 		ledInterpr = new LedApplInterpreter(led) ;
  	}
-	
-
  	
  	@Override
 	public void elaborate(String message, Interaction2021 conn) {

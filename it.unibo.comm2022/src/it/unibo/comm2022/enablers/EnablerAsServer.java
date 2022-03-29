@@ -3,6 +3,7 @@ package it.unibo.comm2022.enablers;
 import it.unibo.comm2022.ProtocolType;
 import it.unibo.comm2022.interfaces.IApplMsgHandler;
 import it.unibo.comm2022.tcp.TcpServer;
+import it.unibo.comm2022.udp.UdpServer;
 import it.unibo.comm2022.utils.ColorsOut;
 /*
  * Attiva un server relativo al protocollo specificato (se non null)
@@ -13,6 +14,7 @@ public class EnablerAsServer   {
 	protected String name;
 	protected ProtocolType protocol;
 	protected TcpServer serverTcp;
+	protected UdpServer serverUdp;
 	protected boolean isactive = false;
 
 	public EnablerAsServer( String name, int port, ProtocolType protocol, IApplMsgHandler handler )   { 
@@ -33,11 +35,15 @@ public class EnablerAsServer   {
 	
  	protected void setServerSupport( int port, ProtocolType protocol, IApplMsgHandler handler   ) throws Exception{
 		
- 		if( protocol == ProtocolType.tcp || protocol == ProtocolType.udp) {
+ 		if( protocol == ProtocolType.tcp) {
 			serverTcp = new TcpServer( "EnabSrvTcp_"+count++, port,  handler );
 			ColorsOut.out(name+" |  CREATED  on port=" + port + " protocol=" + protocol + " handler="+handler);
 			
-		}else if( protocol == ProtocolType.coap ) {
+		}else if( protocol == ProtocolType.udp) {
+			serverUdp = new UdpServer( "EnabSrvUdp_"+count++, port,  handler );
+			ColorsOut.out(name+" |  CREATED  on port=" + port + " protocol=" + protocol + " handler="+handler);
+		}
+ 		else if( protocol == ProtocolType.coap ) {
 			//CoapApplServer.getTheServer();	//Le risorse sono create alla configurazione del sistema
 			ColorsOut.out(name+" |  CREATED  CoapApplServer"  );
 			
@@ -56,11 +62,15 @@ public class EnablerAsServer   {
  	
 	public void  start() {
 		
-		if( protocol == ProtocolType.tcp || protocol == ProtocolType.udp ) {
+		if( protocol == ProtocolType.tcp ) {
 	 		//Colors.out(name+" |  ACTIVATE"   );
 			serverTcp.activate();
 			isactive = true;
-		} 			
+		
+		}else if( protocol == ProtocolType.udp) {
+			serverUdp.activate();
+			isactive = true;
+		}
  	}
  
  	public void stop() {
@@ -68,7 +78,11 @@ public class EnablerAsServer   {
 		if( protocol == ProtocolType.tcp ) {
 			serverTcp.deactivate();
 			isactive = false;
-		} 		
+		
+		}else if( protocol == ProtocolType.udp) {
+			serverUdp.deactivate();
+			isactive = false;
+		}
  	}
   	 
 }

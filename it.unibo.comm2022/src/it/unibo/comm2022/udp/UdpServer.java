@@ -2,6 +2,7 @@ package it.unibo.comm2022.udp;
 
 import java.net.DatagramPacket;
 import java.net.DatagramSocket;
+import java.net.InetAddress;
 import java.net.SocketAddress;
 import java.util.HashMap;
 import java.util.Map;
@@ -13,6 +14,7 @@ import it.unibo.comm2022.utils.ColorsOut;
 public class UdpServer extends Thread {
 	private DatagramSocket serverSocket;
 	private DatagramPacket packet;
+	private byte [] buffer;
 	private Map<SocketAddress, Integer> map;
 	protected IApplMsgHandler userDefHandler;
 	protected String name;
@@ -26,10 +28,6 @@ public class UdpServer extends Thread {
 			this.name             = getName();
 			this.userDefHandler   = userDefHandler;
 			serverSocket		  = new DatagramSocket(port);
-			
-			byte[] receive 		  = new byte[2048];
-			packet				  = new DatagramPacket( receive, receive.length );
-			
 			map = new HashMap<SocketAddress, Integer>();
 			
 		}catch (Exception e) { 
@@ -44,11 +42,13 @@ public class UdpServer extends Thread {
 			ColorsOut.out(getName() + " | STARTING ... ", ColorsOut.BLUE  );
 			
 			while( ! stopped ) {
+				buffer  = new byte[2048];
+				packet	= new DatagramPacket( buffer, buffer.length );
+				
 				serverSocket.receive(packet);
 				SocketAddress senderAddress = packet.getSocketAddress();
 				
 				if(map.containsKey(senderAddress) == false) {
-					System.out.println("la mappa non contiene l'address " + senderAddress);
 					DatagramSocket socket = new DatagramSocket();
 					sleep(100);
 					map.put(senderAddress, socket.getLocalPort());
@@ -57,11 +57,9 @@ public class UdpServer extends Thread {
 				}
 	
 				int port = map.get(senderAddress);
+				packet.setAddress(InetAddress.getByName( "localhost" ));
 				packet.setPort(port);
-				System.out.println("reindirizzo pacchetto a " + packet.getSocketAddress());
 				serverSocket.send(packet);
-				
-				ColorsOut.out(getName() + " | accepted connection  ", ColorsOut.BLUE   );  
 						 		
 			}
 			
