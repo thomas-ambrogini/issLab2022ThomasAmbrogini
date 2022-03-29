@@ -22,14 +22,14 @@ public class CommSystemConfig {
 	}
 	
 	public static void setTheConfiguration( String resourceName ) {
-		//Nella distribuzione resourceName è in una dir che include la bin  
+		//Nella distribuzione resourceName ï¿½ in una dir che include la bin  
 		FileInputStream fis = null;
 		try {
 			ColorsOut.out("%%% setTheConfiguration from file:" + resourceName);
 			if(  fis == null ) {
  				 fis = new FileInputStream(new File(resourceName));
 			}
-	        //JSONTokener tokener = new JSONTokener(fis);
+			
 			Reader reader       = new InputStreamReader(fis);
 			JSONTokener tokener = new JSONTokener(reader);      
 	        JSONObject object   = new JSONObject(tokener);
@@ -39,6 +39,7 @@ public class CommSystemConfig {
 	        
 	        switch( object.getString("protocolType") ) {
 		        case "tcp"  : protcolType = ProtocolType.tcp; break;
+		        case "udp"  : protcolType = ProtocolType.udp; break;
 		        case "coap" : protcolType = ProtocolType.coap; break;
 		        case "mqtt" : protcolType = ProtocolType.mqtt; break;
 	        }
