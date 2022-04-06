@@ -1,18 +1,23 @@
 package it.unibo.radarSystem22.domain.models;
 
 import it.unibo.radarSystem22.domain.Distance;
+import it.unibo.radarSystem22.domain.DistanceMeasured;
 import it.unibo.radarSystem22.domain.concrete.SonarConcrete;
 import it.unibo.radarSystem22.domain.interfaces.IDistance;
+import it.unibo.radarSystem22.domain.interfaces.IDistanceMeasured;
 import it.unibo.radarSystem22.domain.interfaces.ISonar;
+import it.unibo.radarSystem22.domain.interfaces.ISonarObservable;
 import it.unibo.radarSystem22.domain.mock.SonarMock;
 import it.unibo.radarSystem22.domain.utils.ColorsOut;
 import it.unibo.radarSystem22.domain.utils.DomainSystemConfig;
 
-public abstract class SonarModel implements ISonar {
+public abstract class SonarModel implements ISonarObservable {
 	protected IDistance curSonarVal = new Distance(90);
 	protected boolean active = false;
+	private IDistanceMeasured distanceMeasured;
 	
 	public static ISonar create() {
+		
 		if( DomainSystemConfig.simulation )
 			return createSonarMock();
 		else
@@ -31,6 +36,10 @@ public abstract class SonarModel implements ISonar {
 	
 	protected SonarModel() {
 		ColorsOut.out("SonarModel | callign (specialized) sonarSetUp", ColorsOut.BLUE);
+		
+		if( DomainSystemConfig.observable )
+			distanceMeasured = new DistanceMeasured();
+		
 		sonarSetUp();
 	}
 	
@@ -51,6 +60,10 @@ public abstract class SonarModel implements ISonar {
 			public void run() {
 				while ( active ) {
 					sonarProduce();
+			
+					if(DomainSystemConfig.observable) {
+						distanceMeasured.setDistance(curSonarVal);
+					}
 				}
 				ColorsOut.out("SonarModel | ENDS");
 			}
@@ -71,6 +84,10 @@ public abstract class SonarModel implements ISonar {
 	@Override
 	public boolean isActive() {
 		return active;
+	}
+	
+	public IDistanceMeasured getDistanceMeasured() {
+		return distanceMeasured;
 	}
 
 	

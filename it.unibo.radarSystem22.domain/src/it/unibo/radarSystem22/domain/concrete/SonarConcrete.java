@@ -55,11 +55,12 @@ public class SonarConcrete extends SonarModel implements ISonar {
 	@Override
 	public void deactivate() {
 		ColorsOut.out("SonarConcrete | deactivate", ColorsOut.GREEN);
+		super.deactivate();
 		curSonarVal = new Distance(90);
 		if (sonarProcess != null ) {
 			sonarProcess.destroy();
 			sonarProcess = null;
 		}
-		super.deactivate();
+		
 	}
 }

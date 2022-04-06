@@ -27,7 +27,7 @@ public class TestSonar {
 		System.out.println("testSonar");
 		DomainSystemConfig.simulation = true;
 		DomainSystemConfig.testing    = false;
-		DomainSystemConfig.sonarDelay = 100;
+		DomainSystemConfig.sonarDelay = 1000;
 		
 		int delta = 1;
 		

@@ -13,9 +13,10 @@ import org.json.JSONTokener;
 
 public class DomainSystemConfig {
 
-	public static  boolean simulation    = true;
- 	public static  boolean ledGui        = false;
-	public static  boolean webCam        = false;
+	public static boolean simulation    = true;
+	public static boolean observable	= false;
+ 	public static boolean ledGui        = false;
+	public static boolean webCam        = false;
  
 	public static int sonarDelay          =  100;     
 	public static int sonarDistanceMax    =  150;     
@@ -43,16 +44,16 @@ public class DomainSystemConfig {
 	        JSONObject object   = new JSONObject(tokener);
 	 		
 	        simulation          = object.getBoolean("simulation");
+	        observable			= object.getBoolean("observable");
 	        
+	        webCam           	= object.getBoolean("webCam");
 	        
-	        webCam           = object.getBoolean("webCam");
-	        
-	        sonarObservable  = object.getBoolean("sonarObservable");	
-	        sonarDelay       = object.getInt("sonarDelay");	
-	        sonarDistanceMax = object.getInt("sonarDistanceMax");	
-	        DLIMIT           = object.getInt("DLIMIT");	
-	        tracing          = object.getBoolean("tracing");
-	        testing          = object.getBoolean("testing");
+	        sonarObservable  	= object.getBoolean("sonarObservable");	
+	        sonarDelay       	= object.getInt("sonarDelay");	
+	        sonarDistanceMax 	= object.getInt("sonarDistanceMax");	
+	        DLIMIT           	= object.getInt("DLIMIT");	
+	        tracing         	 = object.getBoolean("tracing");
+	        testing          	= object.getBoolean("testing");
 	        
  	        
 		} catch (FileNotFoundException e) {
