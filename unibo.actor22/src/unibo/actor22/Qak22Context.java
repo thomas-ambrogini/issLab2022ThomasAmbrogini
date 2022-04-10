@@ -19,10 +19,15 @@ public class Qak22Context {
     
     public static void setActorAsRemote(
     		String actorName, String entry, String host, ProtocolType protocol ) {
-    		if( ! proxyMap.containsKey(actorName+"Pxy")) { //un solo proxy per contesto remoto
-	    		ProxyAsClient pxy = new ProxyAsClient(actorName+"Pxy", host, entry, protocol);
-	    		proxyMap.put(actorName, pxy);
+    		ProxyAsClient pxy = proxyMap.get("host" + "Pxy");
+    		if( pxy == null ) { //un solo proxy per contesto remoto
+	    		pxy = new ProxyAsClient(host+"Pxy", host, entry, protocol);
+	    		ColorsOut.outappl("Qak22Context | CREATED proxy for " + host + " since:" + actorName, ColorsOut.MAGENTA);
+	    		proxyMap.put(host+"Pxy", pxy);
+    		}else {
+	    		ColorsOut.outappl("Qak22Context | EXISTS proxy for " + host + " since:" + actorName, ColorsOut.MAGENTA);  			
     		}
+    		proxyMap.put(actorName, pxy);
     }
     
 

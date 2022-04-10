@@ -16,13 +16,14 @@ public class CommSystemConfig {
 	public static int serverTimeOut        =  600000;  //10 minuti	
  	public static ProtocolType protcolType = ProtocolType.tcp;
  	public static boolean tracing          = false;
+ 	public static String hostAddress	   = "localhost";
 
 	public static void setTheConfiguration(  ) {
 		setTheConfiguration("../CommSystemConfig.json");
 	}
 	
 	public static void setTheConfiguration( String resourceName ) {
-		//Nella distribuzione resourceName è in una dir che include la bin  
+		//Nella distribuzione resourceName ï¿½ in una dir che include la bin  
 		FileInputStream fis = null;
 		try {
 			ColorsOut.out("%%% setTheConfiguration from file:" + resourceName);
@@ -36,6 +37,7 @@ public class CommSystemConfig {
 	        
 	        mqttBrokerAddr   = object.getString("mqttBrokerAddr");
 	        tracing          = object.getBoolean("tracing");
+	        hostAddress 	 = object.getString("hostAddress");
 	        
 	        switch( object.getString("protocolType") ) {
 		        case "tcp"  : protcolType = ProtocolType.tcp; break;

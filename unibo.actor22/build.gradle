@@ -7,7 +7,7 @@
 plugins {
     id 'java'
     id 'eclipse'
-    //id 'application'
+    id 'application'
 	id 'jacoco'
 }
 repositories {
@@ -59,6 +59,7 @@ dependencies {
 sourceSets {
     main.java.srcDirs += 'src'
     main.java.srcDirs += 'resources'
+    main.java.srcDirs += 'test'
     test.java.srcDirs += 'test'
 }
 
@@ -70,22 +71,24 @@ eclipse {
 }
 
  
-//mainClassName = 'it.unibo.xxx' //TODO
+mainClassName = 'unibo.actor22.main.MainSelector' 
 
 jar {
     from sourceSets.main.allSource
-    //manifest { attributes 'Main-Class': "$mainClassName" }
+    manifest { attributes 'Main-Class': "$mainClassName" }
 }
 
-/*
+
 distributions {
     main {
         contents {
-            from './RadarSystemConfig.json'
+            from './DomainSystemConfig.json'
+            from './CommSystemConfig.json'
         }
     }
 }
 
+/*
 git rm --cached .project
 git rm --cached .classpath
 */ 

@@ -22,6 +22,10 @@ public class ApplData {
 	public static final String cmdGetDistance	 = "getDistance";
 	public static final String reqIsActive  	 = "isActive";
 	public static final String reqGetDistance 	 = "getDistance";
+	public static final String distanceUpdate	 = "distanceUpdate";
+	
+	public static final String addObserver		 = "addObserver";
+	public static final String getCounter		 = "getCounter";
 	
 	public static final String cmdUpdate		 = "update";
 	public static final String reqGetCurDistance = "getCurDistance";
@@ -29,6 +33,7 @@ public class ApplData {
 	public static final String evEndWork    	= "endWork";
 
 	public static final int ctxPort          	= 8018;
+	public static final int ctxPortPc   		= 8019;
 	public static final ProtocolType protocol	= ProtocolType.tcp;
 	
 	public static final IApplMessage turnOnLed    = buildDispatch(controllerName, "cmd", comdLedon,   ledName);
@@ -37,12 +42,8 @@ public class ApplData {
 	public static final IApplMessage activateSonar 	 = buildDispatch(controllerName, "cmd", cmdActivate, sonarName);
 	public static final IApplMessage deactivateSonar = buildDispatch(controllerName, "cmd", cmdDeactivate, sonarName);
 	
-	public static final IApplMessage updateRadar = buildDispatch(controllerName, cmdUpdate, "", radarName);
 	
 	public static final IApplMessage activateCrtl = buildDispatch("main", "cmd", cmdActivate, controllerName);
-	public static final IApplMessage activateSonarCtrl = buildDispatch("main", "cmd", cmdActivate, controllerName);
-	public static final IApplMessage getDistanceCtrl = buildDispatch("main", "cmd", cmdGetDistance, controllerName);
-	public static final IApplMessage updateRadarCtrl = buildDispatch("main", "cmd", cmdUpdate, controllerName);
 	
 	public static final  IApplMessage endWorkEvent = buildEvent(controllerName, evEndWork, evEndWork );
 	

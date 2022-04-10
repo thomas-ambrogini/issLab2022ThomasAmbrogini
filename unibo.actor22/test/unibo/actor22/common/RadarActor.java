@@ -5,9 +5,7 @@ import org.json.JSONObject;
 import it.unibo.kactor.IApplMessage;
 import it.unibo.kactor.MsgUtil;
 import it.unibo.radarSystem22.domain.DeviceFactory;
-import it.unibo.radarSystem22.domain.interfaces.IDistance;
 import it.unibo.radarSystem22.domain.interfaces.IRadarDisplay;
-import it.unibo.radarSystem22.domain.interfaces.ISonar;
 import unibo.actor22.QakActor22;
 import unibo.actor22comm.utils.ColorsOut;
 import unibo.actor22comm.utils.CommUtils;
@@ -42,7 +40,7 @@ public class RadarActor extends QakActor22{
 				sendReply(msg, reply );				
 				break;
 			}
- 			default: ColorsOut.outerr(getName()  + " | unknown " + msgReq);
+ 			default: ColorsOut.outerr(getName()  + " | unknown request " + msgReq);
 		}
 	}
 	
@@ -50,7 +48,8 @@ public class RadarActor extends QakActor22{
 		String msgId  = msg.msgId();
 		String msgContent = msg.msgContent();
 		msgContent = msgContent.replace("'", "");
- 		switch( msgId ) {
+ 		
+		switch( msgId ) {
  			case ApplData.cmdUpdate :{
  				//{ "distance" : 90 , "angle" : 90 }
  				try {
@@ -62,8 +61,9 @@ public class RadarActor extends QakActor22{
  				}catch(Exception e) {
  					e.printStackTrace();
  				}
+ 				break;
  			}
-			default: ColorsOut.outerr(getName()  + " | unknown " + msgId);
+			default: ColorsOut.outerr(getName()  + " | unknown " + msgId);break;
 		}
 	}
 

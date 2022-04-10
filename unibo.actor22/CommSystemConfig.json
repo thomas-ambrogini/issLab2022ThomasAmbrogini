@@ -1,0 +1,8 @@
+{
+"protcolType"    : "tcp",
+"serverTimeOut"  : "600000",
+"mqttBrokerAddr" : "tcp://localhost:1883",
+"hostAddress"    : "localhost",
+"tracing"        : "true"
+}
+
